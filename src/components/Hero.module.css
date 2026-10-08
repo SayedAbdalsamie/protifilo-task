@@ -1,0 +1,299 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 68px; /* nav height */
+  position: relative;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-16);
+  align-items: center;
+  padding-top: var(--sp-24);
+  padding-bottom: var(--sp-20);
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: var(--sp-6);
+}
+
+.eyebrowLine {
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--accent);
+}
+
+/* ── Headline ── */
+.headline {
+  font-size: clamp(3.2rem, 7vw, 6.4rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: var(--fg);
+  margin-bottom: var(--sp-8);
+  overflow: hidden;
+}
+
+.lineWrapper {
+  display: block;
+  overflow: hidden;
+}
+
+.line {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--t-slow) var(--ease), opacity var(--t-slow) var(--ease);
+}
+
+.lineVisible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.dot {
+  color: var(--accent);
+}
+
+/* ── Description ── */
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg-secondary);
+  max-width: 520px;
+  margin-bottom: var(--sp-8);
+}
+
+/* ── CTAs ── */
+.ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-10);
+}
+
+/* ── Meta ── */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.metaDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+/* ── Visual Box ── */
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+.visualBox {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+  transition: border-color var(--t-mid);
+}
+
+.visualBox:hover {
+  border-color: var(--border-strong);
+}
+
+.vizHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.vizLive {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--fg-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.vizDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--fg-secondary);
+  box-shadow: 0 0 6px var(--fg-secondary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.vizList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.vizRow {
+  display: grid;
+  grid-template-columns: 28px 1fr 100px;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.vizNum {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+}
+
+.vizName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.vizBar {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vizBarFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.2s var(--ease);
+  animation: barReveal 1.2s var(--ease) forwards;
+}
+
+@keyframes barReveal {
+  from { width: 0 !important; }
+}
+
+.vizStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+}
+
+.vizStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vizStatValue {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.1;
+}
+
+.vizStatLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Scroll Indicator ── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  animation: fadeInUp 1s 1.5s both;
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--border-strong);
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: scaleY(1); transform-origin: top; }
+  50% { transform: scaleY(0.4); transform-origin: top; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding-top: var(--sp-16);
+  }
+  .visual {
+    display: none;
+  }
+  .scrollIndicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: clamp(2.6rem, 14vw, 3.4rem);
+  }
+  .ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
