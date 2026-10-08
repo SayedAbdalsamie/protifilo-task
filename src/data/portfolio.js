@@ -12,7 +12,7 @@ export const personal = {
   linkedin: 'https://www.linkedin.com/in/sayed-mohammed-085a94253/',
   github: 'https://github.com/Sayedabdalsamie',
   portfolio: 'https://portfolio-io-git-main-sayedabdalsamies-projects.vercel.app/',
-  cv: '/Sayed_Mohammed_Resume.pdf',
+  cv: `${import.meta.env.BASE_URL}Sayed_Mohammed_Resume.pdf`,
   summary:
     'ML Engineer with hands-on experience in computer vision, NLP, and end-to-end model deployment. Built production-ready AI systems achieving 85–99% accuracy across real-world projects. Certified by Microsoft (DEPI), AMIT Learning, and DataCamp.',
 };
