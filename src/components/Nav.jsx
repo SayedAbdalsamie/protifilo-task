@@ -104,6 +104,7 @@ export default function Nav({ theme, onThemeToggle }) {
             onClick={() => setMenuOpen(p => !p)}
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <span /><span /><span />
           </button>
@@ -112,7 +113,7 @@ export default function Nav({ theme, onThemeToggle }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className={styles.mobileMenu} role="navigation" aria-label="Mobile navigation">
+        <nav id="mobile-navigation" className={styles.mobileMenu} aria-label="Mobile navigation">
           {links.map(link => (
             <a
               key={link.href}
@@ -123,7 +124,7 @@ export default function Nav({ theme, onThemeToggle }) {
               {link.label}
             </a>
           ))}
-        </div>
+        </nav>
       )}
     </header>
   );

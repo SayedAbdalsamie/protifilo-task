@@ -8,18 +8,19 @@
 /* ---------- LIGHT THEME TOKENS ---------- */
 :root {
   --bg: #ECF0F1;
-  --bg-elevated: #BDC3C7;
+  --bg-elevated: #E2E8ED;
   --bg-overlay: rgba(236, 240, 241, 0.92);
   --fg: #2C3E50;
-  --fg-secondary: #7F8C8D;
-  --fg-muted: #7F8C8D;
-  --border: #BDC3C7;
-  --border-strong: #7F8C8D;
-  --accent: #34495E;
-  --accent-hover: #2C3E50;
-  --accent-muted: rgba(52, 73, 94, 0.12);
+  --fg-secondary: #52616F;
+  --fg-muted: #52616F;
+  --border: #C5CED5;
+  --border-strong: #7A8A98;
+  --accent: #1D4ED8;
+  --accent-hover: #1E40AF;
+  --accent-muted: rgba(29, 78, 216, 0.12);
+  --accent-on-strong: #93C5FD;
   --surface: #F7F9F9;
-  --surface-hover: #DDE3E5;
+  --surface-hover: #E8EEF3;
 
   /* Typography */
   --font-display: 'Manrope', -apple-system, sans-serif;
@@ -61,18 +62,19 @@
 /* ---------- DARK THEME TOKENS ---------- */
 [data-theme='dark'] {
   --bg: #2C3E50;
-  --bg-elevated: #34495E;
+  --bg-elevated: #405B73;
   --bg-overlay: rgba(44, 62, 80, 0.92);
   --fg: #ECF0F1;
-  --fg-secondary: #BDC3C7;
-  --fg-muted: #7F8C8D;
-  --border: #7F8C8D;
-  --border-strong: #BDC3C7;
-  --accent: #ECF0F1;
-  --accent-hover: #BDC3C7;
-  --accent-muted: rgba(236, 240, 241, 0.12);
+  --fg-secondary: #D1DBE3;
+  --fg-muted: #AAB7C3;
+  --border: #526679;
+  --border-strong: #8294A5;
+  --accent: #60A5FA;
+  --accent-hover: #93C5FD;
+  --accent-muted: rgba(96, 165, 250, 0.16);
+  --accent-on-strong: #1D4ED8;
   --surface: #34495E;
-  --surface-hover: #3D566E;
+  --surface-hover: #405B73;
 }
 
 /* ---------- RESET ---------- */
@@ -266,20 +268,21 @@ ul {
 
 /* ---------- SCROLL REVEAL (animated via JS hook) ---------- */
 .reveal {
+  opacity: 1;
+}
+
+.js .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  filter: blur(4px);
+  transform: translateY(12px);
   transition:
-    opacity var(--t-slow) var(--ease),
-    transform var(--t-slow) var(--ease),
-    filter var(--t-slow) var(--ease);
+    opacity 0.35s var(--ease),
+    transform 0.35s var(--ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }
@@ -290,14 +293,17 @@ ul {
 
 /* ---------- REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal,
+  .js .reveal.visible {
     opacity: 1;
     transform: none;
-    filter: none;
     transition: none;
   }
   * {
-    animation-duration: 0.01ms !important;
+    animation: none !important;
     transition-duration: 0.01ms !important;
   }
 }

@@ -54,6 +54,12 @@
 
 .line {
   display: block;
+  transform: none;
+  opacity: 1;
+  transition: none;
+}
+
+.js .line {
   transform: translateY(100%);
   opacity: 0;
   transition: transform var(--t-slow) var(--ease), opacity var(--t-slow) var(--ease);
@@ -295,5 +301,14 @@
   .ctas {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line,
+  .lineVisible {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
